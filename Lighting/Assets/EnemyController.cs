@@ -21,35 +21,38 @@ public class EnemyController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(grid == null && nodeMap == null){
+			Debug.Log ("Part2");
 			grid = (Grid) GameObject.Find("MapGrid").GetComponent("Grid");
 			nodeMap = grid.GetNodeMap();
-
-			SetNewInitialPosition();
-			SetNewFinalPosition();
-			FindPath(transform.position, moveTo);
 		}
 
 		if (path != null) {
-			if(path[0].walkable){
-				transform.position = Vector3.MoveTowards (transform.position, path[0].worldPosition, Speed * Time.deltaTime);
-			}else{
-				FindPath(transform.position, moveTo);
+			Debug.Log ("Part3 " + path.Count);
+			if (path [0].walkable) {
+				transform.position = Vector3.MoveTowards (transform.position, path [0].worldPosition, Speed * Time.deltaTime);
+			} else {
+				FindPath (transform.position, moveTo);
 			}
 
-			if(transform.position == path[0].worldPosition){
-				if(path.Count == 1){
-					SetNewInitialPosition();
-					SetNewFinalPosition();
-					FindPath(transform.position, moveTo);
-				}
-				else{
-					path.RemoveAt(0);
+			if (transform.position == path [0].worldPosition) {
+				if (path.Count == 1) {
+					SetNewInitialPosition ();
+					SetNewFinalPosition ();
+					FindPath (transform.position, moveTo);
+				} else {
+					path.RemoveAt (0);
 				}
 			}
+		} else {
+			SetNewInitialPosition ();
+			SetNewFinalPosition ();
+			FindPath (transform.position, moveTo);
 		}
 	}
 
 	void SetNewInitialPosition(){
+		Debug.Log ("In Initial Position");
+
 		if (gridSizeX == 0 && gridSizeY == 0) {
 			gridSizeX = grid.GetGridSizeX();
 			gridSizeY = grid.GetGridSizeY();
@@ -62,19 +65,24 @@ public class EnemyController : MonoBehaviour {
 
 			if(nodeMap[newX, newY].walkable){
 				transform.position = nodeMap[newX, newY].worldPosition; 
+
+				Debug.Log (transform.position);
+
 				isBlocked = false;
 			}
 		}
 	}
 
 	void SetNewFinalPosition(){
+		Debug.Log ("In Final Position");
 		bool isBlocked = true;
 		while (isBlocked) {
 			int newX = Random.Range (0, gridSizeX);
 			int newY = Random.Range (0, gridSizeY);
 			
 			if(nodeMap[newX, newY].walkable){
-				moveTo = nodeMap[newX, newY].worldPosition; 
+				moveTo = nodeMap[newX, newY].worldPosition;
+				Debug.Log (moveTo);
 				isBlocked = false;
 			}
 		}

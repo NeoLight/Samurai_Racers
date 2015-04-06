@@ -120,7 +120,7 @@ public class Maze : MonoBehaviour {
 			childProcess++;
 			cells[cellprocess].east = allWalls[eastWestProcess];
 			cells[cellprocess].north =allWalls[(childProcess+(xSize+1)*ySize)+xSize-1];
-			Debug.Log("position of cell :"+cellprocess+ "= "+cells[cellprocess].center);
+			//Debug.Log("position of cell :"+cellprocess+ "= "+cells[cellprocess].center);
 		}
 
 	

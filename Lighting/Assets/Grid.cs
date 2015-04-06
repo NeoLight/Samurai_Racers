@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 public class Grid : MonoBehaviour {
 	
-	public Vector3 gridWorldSize;
+	public Vector2 gridWorldSize;
 	public float nodeRadius;
 	public LayerMask unwalkableMask;
 	
 	Node[,] grid;
-	
+
 	float nodeDiameter;
 	int gridSizeX, gridSizeY;
 	
@@ -26,11 +26,11 @@ public class Grid : MonoBehaviour {
 	//This function creates the grid and marks if any node is not walkable
 	void CreateGrid(){
 		grid = new Node[gridSizeX, gridSizeY];
-		Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.up * gridWorldSize.y / 2;
+		Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.y / 2;
 		
 		for(int x = 0; x < gridSizeX; x++){
 			for(int y = 0; y < gridSizeY; y++){
-				Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
+				Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius);
 				bool walkable = !(Physics.CheckSphere(worldPoint, nodeRadius, unwalkableMask));
 				grid[x, y] = new Node(walkable, worldPoint, x, y);
 			}
@@ -94,7 +94,7 @@ public class Grid : MonoBehaviour {
 
 	//This function uses gizmos to draw the grid to the screen
 	void OnDrawGizmos(){
-		Gizmos.DrawWireCube (transform.position, new Vector3(gridWorldSize.x, gridWorldSize.y, 0.5f));
+		Gizmos.DrawWireCube (transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
 		
 		if (grid != null) {
 			foreach(Node node in grid){

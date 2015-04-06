@@ -26,10 +26,10 @@ public class AgentController : MonoBehaviour {
 			transform.Translate (Vector3.left * objectSpeed * Time.deltaTime);
 		}else if (Input.GetKey (moveLeft)) 
 		{
-			transform.Translate (Vector3.up * objectSpeed * Time.deltaTime);
+			transform.Translate (Vector3.forward * objectSpeed * Time.deltaTime);
 		} else if (Input.GetKey (moveRight)) 
 		{
-			transform.Translate (Vector3.down * objectSpeed * Time.deltaTime);
+			transform.Translate (Vector3.back * objectSpeed * Time.deltaTime);
 		}  
 		if( Input.GetKey(rotateLeft) ) 
 		{
