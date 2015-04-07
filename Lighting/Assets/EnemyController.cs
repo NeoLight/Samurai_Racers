@@ -28,13 +28,13 @@ public class EnemyController : MonoBehaviour {
 
 		if (path != null) {
 			Debug.Log ("Part3 " + path.Count);
-			if (path [0].walkable) {
+			if (path.Count != 0 && path [0].walkable) {
 				transform.position = Vector3.MoveTowards (transform.position, path [0].worldPosition, Speed * Time.deltaTime);
 			} else {
 				FindPath (transform.position, moveTo);
 			}
 
-			if (transform.position == path [0].worldPosition) {
+			if (path.Count != 0 && transform.position == path [0].worldPosition) {
 				if (path.Count == 1) {
 					SetNewInitialPosition ();
 					SetNewFinalPosition ();

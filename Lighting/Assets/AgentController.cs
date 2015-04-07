@@ -31,15 +31,15 @@ public class AgentController : MonoBehaviour {
 		{
 			transform.Translate (Vector3.back * objectSpeed * Time.deltaTime);
 		}  
-		if( Input.GetKey(rotateLeft) ) 
-		{
-			heading = (heading + turnSpeed) % 360;
-			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler( 0, 0, heading), 15);
-		}
 		if( Input.GetKey(rotateRight) ) 
 		{
+			heading = (heading + turnSpeed) % 360;
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler( 0, heading, 0), 15);
+		}
+		if( Input.GetKey(rotateLeft) ) 
+		{
 			heading = (heading - turnSpeed) % 360;
-			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler( 0, 0, heading), 15);
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler( 0, heading, 0), 15);
 		}
 
 		else {
