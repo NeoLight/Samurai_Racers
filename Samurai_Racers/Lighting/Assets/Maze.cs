@@ -33,7 +33,7 @@ public class Maze : MonoBehaviour {
 	
 	
 	public GameObject wall;
-	public GameObject plane;
+	//public GameObject plane;
 	public float wallLength = 1.0f;
 	public int xSize;
 	public int ySize;
@@ -55,9 +55,9 @@ public class Maze : MonoBehaviour {
 	{
 		GameObject temp;
 		CreateWalls ();
-		plane.transform.localScale= new Vector3 (xSize*.25f, 1, ySize*.25f);
-		temp = Instantiate (plane);
-		temp.name="Floor";
+	//	plane.transform.localScale= new Vector3 (xSize*.25f, 1, ySize*.25f);
+	//	temp = Instantiate (plane);
+	//	temp.name="Floor";
 		for (int i=0; i<cells.Length; i++) 
 		{
 			Debug.Log("Cell"+i+" center location: "+cells[i].center);

@@ -1,11 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\AgentController.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\Desktop\Samurai_Racers\Samurai_Racers\Lighting\Assets\Maze.cs">
     <Files>
-      <File FileName="Assets\Grid.cs" Line="1" Column="1" />
-      <File FileName="Assets\AgentController.cs" Line="33" Column="6" />
-      <File FileName="Assets\EnemyController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Maze.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\..\Desktop\Samurai_Racers\Samurai_Racers\Lighting\Assets\Maze.cs" Line="60" Column="4" />
+      <File FileName="..\..\..\..\Desktop\Samurai_Racers\Samurai_Racers\Lighting\Assets\Pathfinding.cs" Line="23" Column="5" />
+      <File FileName="..\..\..\..\Desktop\Samurai_Racers\Samurai_Racers\Lighting\Assets\Grid.cs" Line="82" Column="2" />
+      <File FileName="..\..\..\..\Desktop\Samurai_Racers\Samurai_Racers\Lighting\Assets\MasterScript.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\..\Desktop\Samurai_Racers\Samurai_Racers\Lighting\Assets\Node.cs" Line="7" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

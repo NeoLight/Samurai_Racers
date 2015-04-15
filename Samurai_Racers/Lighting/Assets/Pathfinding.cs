@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Pathfinding : MonoBehaviour {
 	
@@ -12,10 +13,14 @@ public class Pathfinding : MonoBehaviour {
 	void Update()
 	{
 		FindPath (seeker.position, target.position);
-		newPosition = (grid.path [0].worldPosition);
+		
 		if(grid.path != null)
 		{
-			seeker.position = Vector3.MoveTowards(seeker.position, newPosition, objectSpeed * Time.deltaTime);
+			var first =  grid.path.FirstOrDefault();
+			if (first != null){
+				newPosition = (first.worldPosition);
+				seeker.position = Vector3.MoveTowards(seeker.position, newPosition, objectSpeed * Time.deltaTime);
+			}
 		}
 	}
 	
