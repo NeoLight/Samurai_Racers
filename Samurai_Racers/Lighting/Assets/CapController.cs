@@ -4,11 +4,7 @@ public class CapController : MonoBehaviour
 {
 	public float moveSpeed;
 	private Vector3 moveDirection;
-	
-	void Start () 
-	{
-		
-	}
+
 	void Update()
 	{
 		Movement ();

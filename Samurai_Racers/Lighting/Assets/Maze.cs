@@ -53,7 +53,6 @@ public class Maze : MonoBehaviour {
 	// Use this for initialization
 	void Awake() 
 	{
-		GameObject temp;
 		CreateWalls ();
 	//	plane.transform.localScale= new Vector3 (xSize*.25f, 1, ySize*.25f);
 	//	temp = Instantiate (plane);
